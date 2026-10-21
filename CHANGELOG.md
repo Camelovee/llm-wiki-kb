@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.1.0 — SKILL.md 操作手册化
+
+对标 Astro-Han 的 SKILL.md 把本技能从「纲领」扩写为「操作手册」:
+
+- Ingest 全链编号步骤:Fetch(文件命名/元数据头)、Triage 四处置定义、Compile 落位判定树、Cascade 级联与 Status 块精确格式、收尾顺序依赖与日志 code block(含 No material 机器可读变体)。
+- 新增 Lint 三层权威全展开与**人工裁决清单**(跨页矛盾/无 Status 旧主张/缺冲突标注等 9 类),Post-Lint 日志格式。
+- 新增 Conventions:日期口径、链接口径(库内文件相对 vs 对话根相对)、**谁写哪些文件矩阵**。
+- Grounding Invariant 增加覆盖边界说明(机查候选集封闭,小整数/货币/文字日期归编译纪律与人工)。
+- 明确 SKILL(怎么做)与库 AGENTS.md(规则真源)的分工与冲突优先级。
+
 ## v1.0.0 — 首个版本
 
 按 Andrej Karpathy 的 LLM Wiki 工作流初始化并维护个人主题知识库的纯中文 Agent 技能。
