@@ -1,0 +1,37 @@
+{
+  "skill_name": "llm-wiki-obsidian",
+  "evals": [
+    {
+      "id": 0,
+      "name": "init-kb-zh",
+      "prompt": "我想按卡帕西那套 LLM Wiki 工作流,初始化一个『大模型推理优化』主题的个人知识库,放在 <outputs>/KB。",
+      "expected_output": "topic 布局骨架(原始资料/+附件、知识库/含决策/与三个导航页、模板×3、工具×4);AGENTS.md 含按主题补写的领域约定(DOMAIN-RULES 无残留);维护日志首行;.清单.json 基线;校验 0/0/0/0;索引.py 首跑 no-op;无占位符残留。",
+      "files": [],
+      "skill_path": "SKILL.md"
+    },
+    {
+      "id": 1,
+      "name": "ingest-zh",
+      "prompt": "我刚把一篇文章丢进了知识库,帮我「编译一下知识库」——把新来源编译进知识层,该跑的脚本都跑掉。",
+      "expected_output": "清单检出新增源;先声明 Triage 处置(新建/并入/无新知);逐篇编译产出 frontmatter 合规且带 raw 字段的知识页;承重事实可在源中逐字找到(证据.py 无证据错误);跑索引.py;清单 --update;校验 0/0/0/0。",
+      "files": ["预初始化库(原始资料/推理优化/ 下有一篇未编译的 KV 缓存文章,fixture: evals/fixtures/eval-1-article-kv-cache.md)"],
+      "skill_path": "SKILL.md"
+    },
+    {
+      "id": 2,
+      "name": "lint-zh",
+      "prompt": "帮我「检查知识库」,该修的顺手修掉,修完报告结果。",
+      "expected_output": "校验.py 检出 frontmatter/断链/孤儿/索引四类问题;证据.py 的证据错误也被处理;跑索引.py 修复索引漂移;重跑两脚本全绿;坏页未被简单删除;仪表盘数字准确。",
+      "files": ["预初始化库(知识库/ 下植入 3 个坏页:缺 frontmatter、断链、孤儿;fixture: evals/fixtures/eval-2-pages/)"],
+      "skill_path": "SKILL.md"
+    },
+    {
+      "id": 3,
+      "name": "batch-ingest-zh",
+      "prompt": "我把三篇文章丢进了 原始资料/推理优化/,都编译进知识库吧。",
+      "expected_output": "批量模式:先出全局图谱(各源处置判定+待建/待更页蓝图);逐篇深入后一次 清单 --update;全部知识页带 raw 且证据.py 无证据错误;索引.py 已跑;校验 0/0/0/0。",
+      "files": ["预初始化库(原始资料/推理优化/ 下有三篇未编译文章;fixture: evals/fixtures/eval-1/3-*.md)"],
+      "skill_path": "SKILL.md"
+    }
+  ]
+}
